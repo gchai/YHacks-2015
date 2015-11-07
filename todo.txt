@@ -1,0 +1,7 @@
+todo:
+        Implement:
+                Pebble (Nuance)
+                Feedback (HP)
+                Share (FB)
+        Parse file
+        Get model for Yellow Taxi Data
