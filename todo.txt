@@ -1,7 +1,14 @@
-todo:
+To Do:
         Implement:
                 Pebble (Nuance)
                 Feedback (HP)
                 Share (FB)
-        Parse file
+        Parse file for Modeling (FINRA)
         Get model for Yellow Taxi Data
+
+Sponsor goals:
+FINRA (New York TLC Taxi Data Challenge)
+Nuance (Best Use of Speech)
+HP (Best use of an HP Developer API)
+Facebook (Best use of a Facebook API)
+
