@@ -1,9 +1,11 @@
 {
     "appKeys": {
+        "KEY_CURCOR": 1,
+        "KEY_TARGET": 2,
         "dummy": 0
     },
     "capabilities": [
-        ""
+        "location"
     ],
     "companyName": "Pebble",
     "longName": "Simple Voice Demo",
@@ -14,8 +16,7 @@
     "sdkVersion": "3",
     "shortName": "Simple Voice Demo",
     "targetPlatforms": [
-        "basalt",
-        "chalk"
+        "basalt"
     ],
     "uuid": "d7308b1f-3bb8-4a59-8af0-e2b6be6d0807",
     "versionLabel": "1.0",
