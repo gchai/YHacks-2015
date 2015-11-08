@@ -125,7 +125,7 @@ function manageMsg(msg) {
           dest.coord = res.results[0].geometry.location
 
           console.log(JSON.stringify(res.results[0].geometry.location));
-          uberPrice = fetchPriceAndDistance(40.740886, -73.998168, dest.coord.lat, dest.coord.lng );
+          uberPrice = fetchPriceAndDistance(40.730794, -73.997330, dest.coord.lat, dest.coord.lng );
         }
       }
     };
@@ -159,7 +159,7 @@ function manageMsg(msg) {
   
   console.log("Start with getProbableLocation");
 
-  getProbableLocation(40.740886, -73.998168, msg);
+  getProbableLocation(40.730794, -73.997330, msg);
 }
 
 
