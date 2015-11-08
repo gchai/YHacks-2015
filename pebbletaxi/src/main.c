@@ -40,6 +40,15 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   // Start voice dictation UI
   dictation_session_start(s_dictation_session);
 }
+
+static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+  app_log(APP_LOG_LEVEL_INFO, "Down Button Pressed");
+}
+
+static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
+  app_log(APP_LOG_LEVEL_INFO, "Up Button Pressed");
+}
+
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
   // Get the first pair
   Tuple *data = dict_find(iterator, KEY_CURCOR);
@@ -62,6 +71,8 @@ static void outbox_sent_callback(DictionaryIterator *iterator, void *context) {
 
 static void click_config_provider(void *context) {
   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
+  window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
+  window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
 }
 
 static void window_load(Window *window) {
