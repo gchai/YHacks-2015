@@ -2,13 +2,17 @@
 
 static Window *s_main_window;
 static TextLayer *s_output_layer;
+static BitmapLayer *s_icon_layer;
+static ActionBarLayer *s_action_bar_layer;
+static GBitmap *s_icon_bitmap, *s_tick_bitmap, *s_cross_bitmap
 
 static DictationSession *s_dictation_session;
 static char s_last_text[256];
 static char s_buffer[256];
-#define UBER 1
-#define CABBIE 2
-#define TARGET 3
+enum {
+  KEY_CURCOR = 1,
+  KEY_TARGET = 2,
+};
 /******************************* Dictation API ********************************/
 
 static void dictation_session_callback(DictationSession *session, DictationSessionStatus status, 
@@ -17,10 +21,10 @@ static void dictation_session_callback(DictationSession *session, DictationSessi
     // Display the dictated text
     DictionaryIterator *iterator;
     app_message_outbox_begin(&iterator);
-    Tuplet tuple = TupletCString(TARGET,transcription);
+    Tuplet tuple = TupletCString(2,transcription);
     dict_write_tuplet(iterator, &tuple);
     dict_write_end(iterator);
-    Tuple *data = dict_find(iterator, TARGET);
+    Tuple *data = dict_find(iterator, 2);
     app_message_outbox_send();
     snprintf(s_last_text, sizeof(s_buffer), "Received '%s'", data->value->cstring);
      //snprintf(s_last_text, sizeof(s_buffer), "Received '%s'", "my name sucks");
@@ -41,40 +45,20 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   dictation_session_start(s_dictation_session);
 }
 
-
 static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
   APP_LOG(APP_LOG_LEVEL_INFO, "Down Button Pressed");
 }
 
 static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
   APP_LOG(APP_LOG_LEVEL_INFO, "Up Button Pressed");
-
 }
 
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
- // (void) context;
   // Get the first pair
-  Tuple *data = dict_read_first(iterator);
-  APP_LOG(APP_LOG_LEVEL_ERROR, "message get");
-  char uber_buffer[32], cabbie_buffer[32];
-  while(data != NULL)
-    {
-        APP_LOG(APP_LOG_LEVEL_ERROR, "message get");
-         int key = data->key;
-         char string_value[32];
-         strcpy(string_value, data->value->cstring);
-         switch(key){
-           case UBER:
-             strcpy(uber_buffer,string_value);
-             APP_LOG(APP_LOG_LEVEL_INFO, string_value);
-           case CABBIE:
-             strcpy(cabbie_buffer,string_value);
-             APP_LOG(APP_LOG_LEVEL_INFO, string_value);
-         }
-         data = dict_read_next(iterator);
-    }
-  snprintf(s_last_text, sizeof(s_last_text), "Uber Price:%s \n\n Yellow Cab Price:\n$%s", uber_buffer,cabbie_buffer);
-    text_layer_set_text(s_output_layer, s_last_text);
+  Tuple *data = dict_find(iterator, KEY_CURCOR);
+  if (data) {
+    snprintf(s_buffer, sizeof(s_buffer), "Received '%s'", data->value->cstring);
+  }
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {
@@ -91,9 +75,10 @@ static void outbox_sent_callback(DictionaryIterator *iterator, void *context) {
 
 static void click_config_provider(void *context) {
   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
-
   window_single_click_subscribe(BUTTON_ID_DOWN, down_click_handler);
   window_single_click_subscribe(BUTTON_ID_UP, up_click_handler);
+  //window_single_click_subscribe(BUTTON_ID_UP, cancel_uber);
+  //window_single_click_subscribe(BUTTON_ID_DOWN, call_uber);
 }
 
 static void window_load(Window *window) {
@@ -108,6 +93,59 @@ static void window_load(Window *window) {
 
 static void window_unload(Window *window) {
   text_layer_destroy(s_output_layer);
+}
+
+static void uberwindow_load(Window *window) {
+  Layer *window_layer = window_get_root_layer(window);
+  GRect bounds = layer_get_bounds(window_layer);
+
+  s_icon_bitmap = gbitmap_create_with_resource(RESOURCE_ID_CONFIRM);
+  GRect bitmap_bounds = gbitmap_get_bounds(s_icon_bitmap);
+
+  s_icon_layer = bitmap_layer_create(GRect((bounds.size.w / 2) - (bitmap_bounds.size.w / 2) - (ACTION_BAR_WIDTH / 2), 10, bitmap_bounds.size.w, bitmap_bounds.size.h));
+  bitmap_layer_set_bitmap(s_icon_layer, s_icon_bitmap);
+  bitmap_layer_set_compositing_mode(s_icon_layer, GCompOpSet);
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_icon_layer));
+
+  s_label_layer = text_layer_create(GRect(10, 10 + bitmap_bounds.size.h + 5, 124 - ACTION_BAR_WIDTH, bounds.size.h - (10 + bitmap_bounds.size.h + 15)));
+  text_layer_set_text(s_label_layer, "Call Uber?");
+  text_layer_set_background_color(s_label_layer, GColorClear);
+  text_layer_set_text_alignment(s_label_layer, GTextAlignmentCenter);
+  text_layer_set_font(s_label_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
+  layer_add_child(window_layer, text_layer_get_layer(s_label_layer));
+
+  s_tick_bitmap = gbitmap_create_with_resource(RESOURCE_ID_TICK);
+  s_cross_bitmap = gbitmap_create_with_resource(RESOURCE_ID_CROSS);
+
+  s_action_bar_layer = action_bar_layer_create();
+  action_bar_layer_set_icon(s_action_bar_layer, BUTTON_ID_UP, s_tick_bitmap);
+  action_bar_layer_set_icon(s_action_bar_layer, BUTTON_ID_DOWN, s_cross_bitmap);
+  action_bar_layer_add_to_window(s_action_bar_layer, window);
+}
+
+static void uberwindow_unload(Window *window) {
+  text_layer_destroy(s_label_layer);
+  action_bar_layer_destroy(s_action_bar_layer);
+  bitmap_layer_destroy(s_icon_layer);
+
+  gbitmap_destroy(s_icon_bitmap); 
+  gbitmap_destroy(s_tick_bitmap);
+  gbitmap_destroy(s_cross_bitmap);
+
+  window_destroy(window);
+  s_main_window = NULL;
+}
+
+void dialog_choice_window_push() {
+  if(!s_main_window) {
+    s_main_window = window_create();
+    window_set_background_color(s_main_window, GColorJaegerGreen);
+    window_set_window_handlers(s_main_window, (WindowHandlers) {
+        .load = uberwindow_load,
+        .unload = window_unload,
+    });
+  }
+  window_stack_push(s_main_window, true);
 }
 
 static void init() {
