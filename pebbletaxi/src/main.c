@@ -6,11 +6,9 @@ static TextLayer *s_output_layer;
 static DictationSession *s_dictation_session;
 static char s_last_text[256];
 static char s_buffer[256];
-enum {
-  UBER = 1,
-  CABBIE = 2,
-  TARGET = 3
-};
+#define UBER 1
+#define CABBIE 2
+#define TARGET 3
 /******************************* Dictation API ********************************/
 
 static void dictation_session_callback(DictationSession *session, DictationSessionStatus status, 
@@ -57,23 +55,25 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
  // (void) context;
   // Get the first pair
   Tuple *data = dict_read_first(iterator);
+  APP_LOG(APP_LOG_LEVEL_ERROR, "message get");
   char uber_buffer[32], cabbie_buffer[32];
   while(data != NULL)
     {
+        APP_LOG(APP_LOG_LEVEL_ERROR, "message get");
          int key = data->key;
          char string_value[32];
          strcpy(string_value, data->value->cstring);
          switch(key){
            case UBER:
              strcpy(uber_buffer,string_value);
-             APP_LOG(APP_LOG_LEVEL_INFO, "UBER");
+             APP_LOG(APP_LOG_LEVEL_INFO, string_value);
            case CABBIE:
              strcpy(cabbie_buffer,string_value);
-             APP_LOG(APP_LOG_LEVEL_INFO, "CABBIE");
+             APP_LOG(APP_LOG_LEVEL_INFO, string_value);
          }
          data = dict_read_next(iterator);
     }
-  snprintf(s_last_text, sizeof(s_last_text), "Uber Price:%s \n\n Yellow Cab Price:%s", uber_buffer,cabbie_buffer);
+  snprintf(s_last_text, sizeof(s_last_text), "Uber Price:%s \n\n Yellow Cab Price:\n$%s", uber_buffer,cabbie_buffer);
     text_layer_set_text(s_output_layer, s_last_text);
 }
 
