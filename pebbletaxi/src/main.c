@@ -7,8 +7,9 @@ static DictationSession *s_dictation_session;
 static char s_last_text[256];
 static char s_buffer[256];
 enum {
-  KEY_CURCOR = 1,
-  KEY_TARGET = 2,
+  UBER = 1,
+  CABBIE = 2,
+  TARGET = 3
 };
 /******************************* Dictation API ********************************/
 
@@ -18,10 +19,10 @@ static void dictation_session_callback(DictationSession *session, DictationSessi
     // Display the dictated text
     DictionaryIterator *iterator;
     app_message_outbox_begin(&iterator);
-    Tuplet tuple = TupletCString(2,transcription);
+    Tuplet tuple = TupletCString(TARGET,transcription);
     dict_write_tuplet(iterator, &tuple);
     dict_write_end(iterator);
-    Tuple *data = dict_find(iterator, 2);
+    Tuple *data = dict_find(iterator, TARGET);
     app_message_outbox_send();
     snprintf(s_last_text, sizeof(s_buffer), "Received '%s'", data->value->cstring);
      //snprintf(s_last_text, sizeof(s_buffer), "Received '%s'", "my name sucks");
@@ -44,20 +45,36 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
 
 
 static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
-  app_log(APP_LOG_LEVEL_INFO, "Down Button Pressed");
+  APP_LOG(APP_LOG_LEVEL_INFO, "Down Button Pressed");
 }
 
 static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
-  app_log(APP_LOG_LEVEL_INFO, "Up Button Pressed");
+  APP_LOG(APP_LOG_LEVEL_INFO, "Up Button Pressed");
 
 }
 
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
+ // (void) context;
   // Get the first pair
-  Tuple *data = dict_find(iterator, KEY_CURCOR);
-  if (data) {
-    snprintf(s_buffer, sizeof(s_buffer), "Received '%s'", data->value->cstring);
-  }
+  Tuple *data = dict_read_first(iterator);
+  char uber_buffer[32], cabbie_buffer[32];
+  while(data != NULL)
+    {
+         int key = data->key;
+         char string_value[32];
+         strcpy(string_value, data->value->cstring);
+         switch(key){
+           case UBER:
+             strcpy(uber_buffer,string_value);
+             APP_LOG(APP_LOG_LEVEL_INFO, "UBER");
+           case CABBIE:
+             strcpy(cabbie_buffer,string_value);
+             APP_LOG(APP_LOG_LEVEL_INFO, "CABBIE");
+         }
+         data = dict_read_next(iterator);
+    }
+  snprintf(s_last_text, sizeof(s_last_text), "Uber Price:%s \n\n Yellow Cab Price:%s", uber_buffer,cabbie_buffer);
+    text_layer_set_text(s_output_layer, s_last_text);
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {

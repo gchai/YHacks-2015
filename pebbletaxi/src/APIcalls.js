@@ -41,8 +41,8 @@ function fetchPriceAndDistance(start_latitude, start_longitude, end_latitude, en
         var output = {};
         var res = JSON.parse(req.response);
 
-        output.price = res.prices[0].estimate;
-        output.distance = res.prices[0].distance;
+        output.UBER = res.prices[0].estimate;
+        output.CABBIE = (Math.floor(100 * (3.5 * (res.prices[0].distance) + 2.5)))/100 + "-" +  (Math.floor(100 * (3.7 * (res.prices[0].distance) + 3.5)))/100;
 
         console.log("Uber output: " + JSON.stringify(output));
         return output;
@@ -121,8 +121,10 @@ Pebble.addEventListener('ready', function(e) {
 
 
 Pebble.addEventListener('appmessage', function(e) {
-    var msg = JSON.stringify(e.payload.KEY_TARGET);
+    var msg = JSON.stringify(e.payload.TARGET);
     console.log('Received message: ' + msg);
 
     var output = manageMsg(msg);
+    //Pebble.sendAppMessage(output);
+  
 });
