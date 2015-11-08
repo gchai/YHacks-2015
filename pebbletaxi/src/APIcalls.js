@@ -6,7 +6,7 @@ Pebble.addEventListener('ready', function(e) {
 Pebble.addEventListener('appmessage',
   function(e) {
      //console.log('Received message: ' + e[KEY_TARGET]);
-    console.log('Received message: ' + JSON.stringify(e.payload));
+    console.log('Received message: ' + JSON.stringify(e.payload.KEY_TARGET));
     }
   
 );
