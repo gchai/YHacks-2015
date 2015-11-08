@@ -1,7 +1,6 @@
 var googleKey = "AIzaSyANz6rDMkj0vbUxFQQYuz3HuMluKtIa-Kk";
 var uberKey = "mPwREC7G-2Va31dK1MxF5d2jOrfmcJ2EiaVlIl8t";
 
-
 function getGPSCoordinates(callback) {	//Callback gets lat and long
 	var locationOptions = {
 		enableHighAccuracy: true,
@@ -23,88 +22,29 @@ function getGPSCoordinates(callback) {	//Callback gets lat and long
 }
 
 
-// function getProbableLocation(lat, long, location) {
-// 	var req = new XMLHttpRequest();
-// 	var url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + lat + ','
-// 		+ long + '&radius=500&types=point_of_interest&name=' + location + '&key=' + googleKey;
-// 	req.open('GET', url);
-// 	req.onload = function() {
-// 		if (req.readyState === 4) {
-// 			if (req.status === 200) {
-// 				var output = {};
-// 				res = JSON.parse(req.response);
-// 				output.coordinates = res.results[0].geometry.location;
-// 				output.name = res.results[0].name;
-// 				output.address = res.results[0].vicinity;
-// 				console.log(output);
-// 				return output;
-// 			}
-// 		}
-// 	};
-// 	req.send(null);
-// }
-
-
-function fetchCoordinateFromAddress(address) {
-	var req = new XMLHttpRequest();
-	req.open('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address=' + 
-		address + '&key=' + googleKey );
-	req.onload = function() {
-		if (req.readyState === 4) {
-			if (req.status === 200) {
-				res = JSON.parse(req.response);
-				console.log(res.results[0].geometry.location);
-				return res.results[0].geometry.location;
-			}
-		}
-	};
-	req.send(null);
-}
-
-
 function fetchPriceAndDistance(start_latitude, start_longitude, end_latitude, end_longitude) {
 	var req = new XMLHttpRequest();
 
 	var url = 'https://api.uber.com/v1/estimates/price?start_latitude=' 
 		+ start_latitude + '&start_longitude=' + start_longitude + '&end_latitude='
 		+ end_latitude + '&end_longitude=' + end_longitude;
-
+  console.log(url);
+  
 	req.open('GET', url);
 	req.setRequestHeader("Authorization", "token " + uberKey);
 
 	req.onload = function() {
 		if (req.readyState === 4) {
 			if (req.status === 200) {
+        console.log("fetchPriceAndDistance received data");
+  
 				var output = {};
-				res = JSON.parse(req.response);
+			  var res = JSON.parse(req.response);
 
 				output.price = res.prices[0].estimate;
 				output.distance = res.prices[0].distance;
 
-				return res.prices[0].estimate;
-			}
-		}
-	};
-	req.send(null);
-}
-
-
-function getProbableLocation(lat, long, search) {
-	var req = new XMLHttpRequest();
-	var url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + search 
-		+ '&location=' + lat + ',' + long + '&radius=1000&types=point_of_interest&key=' + googleKey;
-	req.open('GET', url);
-	req.onload = function() {
-		if (req.readyState === 4) {
-			if (req.status === 200) {
-				var output = {};
-				res = JSON.parse(req.response);
-
-				output.address = res.predictions[0].description;
-				output.coord = fetchCoordinateFromAddress(output.address);
-
-				console.log(output);
-
+        console.log("Uber output: " + JSON.stringify(output));
 				return output;
 			}
 		}
@@ -113,23 +53,76 @@ function getProbableLocation(lat, long, search) {
 }
 
 
-// fetchPriceAndDistance(40.740886, -73.998168, 40.745454, -73.988748);
-// fetchCoordinateFromAddress("42 Broadway Manhattan, NY 10036");
-// getProbableLocation(40.740886, -73.998168, "Penn Station");
+function manageMsg(msg) {
+  var dest = {};
+  var uberPrice;
+  
+  function fetchCoordinateFromAddress(address) {
+    var req = new XMLHttpRequest();
+    var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + 
+      address + '&key=' + googleKey;
+
+    console.log(url);
+
+    req.open('GET', url );
+    req.onload = function() {
+      if (req.readyState === 4) {
+        if (req.status === 200) {
+          console.log("fetchCoord received data");
+
+          var res = JSON.parse(req.response);
+
+          dest.address = address;
+          dest.coord = res.results[0].geometry.location
+
+          console.log(JSON.stringify(res.results[0].geometry.location));
+          uberPrice = fetchPriceAndDistance(40.740886, -73.998168, dest.coord.lat, dest.coord.lng );
+        }
+      }
+    };
+    req.send(null);
+  }  
+  
+  function getProbableLocation(lat, long, search) {
+    var req = new XMLHttpRequest();
+    var url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + search 
+      + '&location=' + lat + ',' + long + '&radius=1000&key=' + googleKey;
+    console.log(url);
+
+    req.open('GET', url);
+    req.onload = function() {
+      if (req.readyState === 4) {
+        if (req.status === 200) {
+          console.log("getProbableLocation received data");
+
+          var output = {};
+          var res = JSON.parse(req.response);
+
+          console.log(JSON.stringify(res));
+
+          output.address = res.predictions[0].description;
+          fetchCoordinateFromAddress(output.address);
+        }
+      }
+    };
+    req.send(null);
+  }
+  
+  console.log("Start with getProbableLocation");
+
+  getProbableLocation(40.740886, -73.998168, msg);
+}
+
 
 Pebble.addEventListener('ready', function(e) {
 	console.log('JavaScript app ready and running!' + e.ready);
 	console.log(e.type);
 });
 
-Pebble.addEventListener('appmessage',
-	function(e) {
+
+Pebble.addEventListener('appmessage', function(e) {
 		var msg = JSON.stringify(e.payload.KEY_TARGET);
-		//console.log('Received message: ' + e[KEY_TARGET]);
 		console.log('Received message: ' + msg);
 
-		var dest = getProbableLocation(40.740886, -73.998168, msg);
-		var uberPrice = fetchPriceAndDistance(40.740886, -73.998168, dest.coord.lat, dest.coord.lang );
-		
-	}
-);
+		var output = manageMsg(msg);
+});
