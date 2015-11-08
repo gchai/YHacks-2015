@@ -16,15 +16,16 @@ static void dictation_session_callback(DictationSession *session, DictationSessi
                                        char *transcription, void *context) {
   if(status == DictationSessionStatusSuccess) {
     // Display the dictated text
-    text_layer_set_text(s_output_layer, s_last_text);
     DictionaryIterator *iterator;
     app_message_outbox_begin(&iterator);
-    uint8_t buffer[256];
-    dict_write_begin(iterator, buffer, sizeof(buffer));
-    dict_write_cstring(iterator, KEY_TARGET, transcription);// Write the CString:dict_write_cstring(&iter, SOME_STRING_KEY, string);// End:
-    const uint32_t final_size = dict_write_end(iterator);
-    
-    snprintf(s_last_text, sizeof(s_last_text), "Transcription:\n\n%s", transcription);
+    Tuplet tuple = TupletCString(2,transcription);
+    dict_write_tuplet(iterator, &tuple);
+    dict_write_end(iterator);
+    Tuple *data = dict_find(iterator, 2);
+    app_message_outbox_send();
+    snprintf(s_last_text, sizeof(s_buffer), "Received '%s'", data->value->cstring);
+     //snprintf(s_last_text, sizeof(s_buffer), "Received '%s'", "my name sucks");
+    //snprintf(s_last_text, sizeof(s_last_text), "Transcription:\n\n%s", transcription);
     text_layer_set_text(s_output_layer, s_last_text);
   } else {
     // Display the reason for any error
@@ -40,6 +41,14 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   // Start voice dictation UI
   dictation_session_start(s_dictation_session);
 }
+
+static void up_click_handler(ClickRecognizerRef recognizer, void *context) {
+  // Start voice dictation UI
+}
+static void down_click_handler(ClickRecognizerRef recognizer, void *context) {
+  // Start voice dictation UI
+}
+
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
   // Get the first pair
   Tuple *data = dict_find(iterator, KEY_CURCOR);
@@ -62,6 +71,8 @@ static void outbox_sent_callback(DictionaryIterator *iterator, void *context) {
 
 static void click_config_provider(void *context) {
   window_single_click_subscribe(BUTTON_ID_SELECT, select_click_handler);
+  //window_single_click_subscribe(BUTTON_ID_UP, cancel_uber);
+  //window_single_click_subscribe(BUTTON_ID_DOWN, call_uber);
 }
 
 static void window_load(Window *window) {

@@ -1,55 +1,55 @@
 var googleKey = "AIzaSyANz6rDMkj0vbUxFQQYuz3HuMluKtIa-Kk";
 var uberKey = "mPwREC7G-2Va31dK1MxF5d2jOrfmcJ2EiaVlIl8t";
 
-function getGPSCoordinates(callback) {	//Callback gets lat and long
-	var locationOptions = {
-		enableHighAccuracy: true,
-		maximumAge: 10000, 
-		timeout: 10000
-	};
+function getGPSCoordinates(callback) {  //Callback gets lat and long
+  var locationOptions = {
+    enableHighAccuracy: true,
+    maximumAge: 10000, 
+    timeout: 10000
+  };
 
-	function locationSuccess(pos) {
-		console.log('lat= ' + pos.coords.latitude + ' lon= ' + pos.coords.longitude);
-		callback(pos.coords.latitude, pos.coords.longitude);
-	}
+  function locationSuccess(pos) {
+    console.log('lat= ' + pos.coords.latitude + ' lon= ' + pos.coords.longitude);
+    callback(pos.coords.latitude, pos.coords.longitude);
+  }
 
-	function locationError(err) {
-		console.log('location error (' + err.code + '): ' + err.message);
-	}
+  function locationError(err) {
+    console.log('location error (' + err.code + '): ' + err.message);
+  }
 
-	// Request current position
-	navigator.geolocation.getCurrentPosition(locationSuccess, locationError, locationOptions);
+  // Request current position
+  navigator.geolocation.getCurrentPosition(locationSuccess, locationError, locationOptions);
 }
 
 
 function fetchPriceAndDistance(start_latitude, start_longitude, end_latitude, end_longitude) {
-	var req = new XMLHttpRequest();
+  var req = new XMLHttpRequest();
 
-	var url = 'https://api.uber.com/v1/estimates/price?start_latitude=' 
-		+ start_latitude + '&start_longitude=' + start_longitude + '&end_latitude='
-		+ end_latitude + '&end_longitude=' + end_longitude;
+  var url = 'https://api.uber.com/v1/estimates/price?start_latitude=' 
+    + start_latitude + '&start_longitude=' + start_longitude + '&end_latitude='
+    + end_latitude + '&end_longitude=' + end_longitude;
   console.log(url);
   
-	req.open('GET', url);
-	req.setRequestHeader("Authorization", "token " + uberKey);
+  req.open('GET', url);
+  req.setRequestHeader("Authorization", "token " + uberKey);
 
-	req.onload = function() {
-		if (req.readyState === 4) {
-			if (req.status === 200) {
+  req.onload = function() {
+    if (req.readyState === 4) {
+      if (req.status === 200) {
         console.log("fetchPriceAndDistance received data");
   
-				var output = {};
-			  var res = JSON.parse(req.response);
+        var output = {};
+        var res = JSON.parse(req.response);
 
-				output.price = res.prices[0].estimate;
-				output.distance = res.prices[0].distance;
+        output.price = res.prices[0].estimate;
+        output.distance = res.prices[0].distance;
 
         console.log("Uber output: " + JSON.stringify(output));
-				return output;
-			}
-		}
-	};
-	req.send(null);
+        return output;
+      }
+    }
+  };
+  req.send(null);
 }
 
 
@@ -115,14 +115,14 @@ function manageMsg(msg) {
 
 
 Pebble.addEventListener('ready', function(e) {
-	console.log('JavaScript app ready and running!' + e.ready);
-	console.log(e.type);
+  console.log('JavaScript app ready and running!' + e.ready);
+  console.log(e.type);
 });
 
 
 Pebble.addEventListener('appmessage', function(e) {
-		var msg = JSON.stringify(e.payload.KEY_TARGET);
-		console.log('Received message: ' + msg);
+    var msg = JSON.stringify(e.payload.KEY_TARGET);
+    console.log('Received message: ' + msg);
 
-		var output = manageMsg(msg);
+    var output = manageMsg(msg);
 });
