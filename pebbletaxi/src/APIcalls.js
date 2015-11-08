@@ -22,6 +22,54 @@ function getGPSCoordinates(callback) {  //Callback gets lat and long
 }
 
 
+// function requestUber(s_lat, s_long, e_lat, e_long) {
+//   function getProductId(callback) {
+//     var req = new XMLHttpRequest();
+//     var url = 'https://api.uber.com/v1/products?latitude=' 
+//       + lat + '&longitude=' + long;
+//     console.log(url);
+  
+//     req.open('GET', url);
+//     req.setRequestHeader("Authorization", "token " + uberKey);
+
+//     req.onLoad = function() {
+//       if (req.readyState === 4) {
+//         if (req.status === 200) {
+//           var res = JSON.parse(req.response);
+//           var products = res.products.filter(function(item){
+//             return item.displayName === "uberX";
+//           });
+//           var id = products[0].product_id;
+
+//           callback(s_lat, s_long, e_lat, e_long, id);
+//         }
+//       }
+//     };
+//   }
+
+//   //Calls Uber after getting product id for uberX
+//   getProductId(function(s_lat, s_long, e_lat, e_long, id) {
+//     var req = new XMLHttpRequest();
+//     var url = 'https://api.uber.com/v1/requests?product_id=' + id + '&start_latitude'
+//       + start_latitude + '&start_longitude=' + start_longitude + '&end_latitude='
+//       + end_latitude + '&end_longitude=' + end_longitude;
+//     console.log(url);
+
+//     req.open('POST', url);
+//     req.setRequestHeader("Authorization", "request " + uberKey);
+    
+//     req.onLoad = function() {
+//       if (req.readyState === 4) {
+//         if (req.status === 200) {
+//           var res = JSON.parse(req.response);
+//           Pebble.sendAppMessage(res.status);
+//         }
+//       }
+//     };
+//   });
+// }
+
+
 function fetchPriceAndDistance(start_latitude, start_longitude, end_latitude, end_longitude) {
   var req = new XMLHttpRequest();
 
