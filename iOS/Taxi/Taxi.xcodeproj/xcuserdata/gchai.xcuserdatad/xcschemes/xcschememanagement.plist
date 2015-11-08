@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Notification - Taxi WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Taxi WatchKit App.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Taxi.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>DA2D979E1BEE64D9002DF12E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA2D97B21BEE64DA002DF12E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA2D97BD1BEE64DA002DF12E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA2D97C61BEE64DA002DF12E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
