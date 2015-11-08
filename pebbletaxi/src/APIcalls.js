@@ -39,7 +39,7 @@ function fetchCoordinateFromAddress(address) {
 }
 
 
-function fetchPrice(start_latitude, start_longitude, end_latitude, end_longitude) {
+function fetchPriceAndDistance(start_latitude, start_longitude, end_latitude, end_longitude) {
 	var req = new XMLHttpRequest();
 
 	var url = 'https://api.uber.com/v1/estimates/price?start_latitude=' 
@@ -52,7 +52,12 @@ function fetchPrice(start_latitude, start_longitude, end_latitude, end_longitude
 	req.onload = function() {
 		if (req.readyState === 4) {
 			if (req.status === 200) {
+				var output = {};
 				res = JSON.parse(req.response);
+
+				output.price = res.prices[0].estimate;
+				output.distance = res.prices[0].distance;
+
 				return res.prices[0].estimate;
 			}
 		}
@@ -60,8 +65,7 @@ function fetchPrice(start_latitude, start_longitude, end_latitude, end_longitude
 	req.send(null);
 }
 
-// Samples?
-// fetchPrice(40.740886, -73.998168, 40.745454, -73.988748);
+// fetchPriceAndDistance(40.740886, -73.998168, 40.745454, -73.988748);
 // fetchCoordinates("42 Broadway Manhattan, NY 10036");
 
 Pebble.addEventListener('ready', function(e) {
