@@ -2,13 +2,15 @@
 
 static Window *s_main_window;
 static TextLayer *s_output_layer;
+static TextLayer *s_label_layer;
 static BitmapLayer *s_icon_layer;
 static ActionBarLayer *s_action_bar_layer;
-static GBitmap *s_icon_bitmap, *s_tick_bitmap, *s_cross_bitmap
+static GBitmap *s_icon_bitmap, *s_tick_bitmap, *s_cross_bitmap;
 
 static DictationSession *s_dictation_session;
 static char s_last_text[256];
 static char s_buffer[256];
+
 enum {
   KEY_CURCOR = 1,
   KEY_TARGET = 2,
