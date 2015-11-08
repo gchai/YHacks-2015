@@ -1,0 +1,795 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA2D97A31BEE64DA002DF12E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D97A21BEE64DA002DF12E /* AppDelegate.swift */; };
+		DA2D97A51BEE64DA002DF12E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D97A41BEE64DA002DF12E /* ViewController.swift */; };
+		DA2D97A81BEE64DA002DF12E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2D97A61BEE64DA002DF12E /* Main.storyboard */; };
+		DA2D97AA1BEE64DA002DF12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2D97A91BEE64DA002DF12E /* Assets.xcassets */; };
+		DA2D97AD1BEE64DA002DF12E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2D97AB1BEE64DA002DF12E /* LaunchScreen.storyboard */; };
+		DA2D97B81BEE64DA002DF12E /* TaxiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D97B71BEE64DA002DF12E /* TaxiTests.swift */; };
+		DA2D97C31BEE64DA002DF12E /* TaxiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D97C21BEE64DA002DF12E /* TaxiUITests.swift */; };
+		DA2D97C81BEE64DA002DF12E /* Taxi WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DA2D97C71BEE64DA002DF12E /* Taxi WatchKit App.app */; };
+		DA2D97CE1BEE64DA002DF12E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA2D97CC1BEE64DA002DF12E /* Interface.storyboard */; };
+		DA2D97D01BEE64DA002DF12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2D97CF1BEE64DA002DF12E /* Assets.xcassets */; };
+		DA2D97D71BEE64DA002DF12E /* Taxi WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DA2D97D61BEE64DA002DF12E /* Taxi WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DA2D97DE1BEE64DA002DF12E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D97DD1BEE64DA002DF12E /* InterfaceController.swift */; };
+		DA2D97E01BEE64DA002DF12E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D97DF1BEE64DA002DF12E /* ExtensionDelegate.swift */; };
+		DA2D97E21BEE64DA002DF12E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D97E11BEE64DA002DF12E /* NotificationController.swift */; };
+		DA2D97E41BEE64DA002DF12E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2D97E31BEE64DA002DF12E /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA2D97B41BEE64DA002DF12E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA2D97971BEE64D9002DF12E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2D979E1BEE64D9002DF12E;
+			remoteInfo = Taxi;
+		};
+		DA2D97BF1BEE64DA002DF12E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA2D97971BEE64D9002DF12E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2D979E1BEE64D9002DF12E;
+			remoteInfo = Taxi;
+		};
+		DA2D97C91BEE64DA002DF12E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA2D97971BEE64D9002DF12E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2D97C61BEE64DA002DF12E;
+			remoteInfo = "Taxi WatchKit App";
+		};
+		DA2D97D81BEE64DA002DF12E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA2D97971BEE64D9002DF12E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2D97D51BEE64DA002DF12E;
+			remoteInfo = "Taxi WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DA2D97EB1BEE64DA002DF12E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DA2D97D71BEE64DA002DF12E /* Taxi WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97EF1BEE64DA002DF12E /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DA2D97C81BEE64DA002DF12E /* Taxi WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DA2D979F1BEE64D9002DF12E /* Taxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2D97A21BEE64DA002DF12E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA2D97A41BEE64DA002DF12E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DA2D97A71BEE64DA002DF12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA2D97A91BEE64DA002DF12E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA2D97AC1BEE64DA002DF12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA2D97AE1BEE64DA002DF12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2D97B31BEE64DA002DF12E /* TaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2D97B71BEE64DA002DF12E /* TaxiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTests.swift; sourceTree = "<group>"; };
+		DA2D97B91BEE64DA002DF12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2D97BE1BEE64DA002DF12E /* TaxiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaxiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2D97C21BEE64DA002DF12E /* TaxiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiUITests.swift; sourceTree = "<group>"; };
+		DA2D97C41BEE64DA002DF12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2D97C71BEE64DA002DF12E /* Taxi WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2D97CD1BEE64DA002DF12E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		DA2D97CF1BEE64DA002DF12E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA2D97D11BEE64DA002DF12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA2D97D61BEE64DA002DF12E /* Taxi WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Taxi WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2D97DC1BEE64DA002DF12E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		DA2D97DD1BEE64DA002DF12E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		DA2D97DF1BEE64DA002DF12E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		DA2D97E11BEE64DA002DF12E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DA2D97E31BEE64DA002DF12E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA2D97E51BEE64DA002DF12E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA2D979C1BEE64D9002DF12E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97B01BEE64DA002DF12E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97BB1BEE64DA002DF12E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97D31BEE64DA002DF12E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA2D97961BEE64D9002DF12E = {
+			isa = PBXGroup;
+			children = (
+				DA2D97A11BEE64D9002DF12E /* Taxi */,
+				DA2D97B61BEE64DA002DF12E /* TaxiTests */,
+				DA2D97C11BEE64DA002DF12E /* TaxiUITests */,
+				DA2D97CB1BEE64DA002DF12E /* Taxi WatchKit App */,
+				DA2D97DA1BEE64DA002DF12E /* Taxi WatchKit Extension */,
+				DA2D97A01BEE64D9002DF12E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA2D97A01BEE64D9002DF12E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D979F1BEE64D9002DF12E /* Taxi.app */,
+				DA2D97B31BEE64DA002DF12E /* TaxiTests.xctest */,
+				DA2D97BE1BEE64DA002DF12E /* TaxiUITests.xctest */,
+				DA2D97C71BEE64DA002DF12E /* Taxi WatchKit App.app */,
+				DA2D97D61BEE64DA002DF12E /* Taxi WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA2D97A11BEE64D9002DF12E /* Taxi */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D97A21BEE64DA002DF12E /* AppDelegate.swift */,
+				DA2D97A41BEE64DA002DF12E /* ViewController.swift */,
+				DA2D97A61BEE64DA002DF12E /* Main.storyboard */,
+				DA2D97A91BEE64DA002DF12E /* Assets.xcassets */,
+				DA2D97AB1BEE64DA002DF12E /* LaunchScreen.storyboard */,
+				DA2D97AE1BEE64DA002DF12E /* Info.plist */,
+			);
+			path = Taxi;
+			sourceTree = "<group>";
+		};
+		DA2D97B61BEE64DA002DF12E /* TaxiTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D97B71BEE64DA002DF12E /* TaxiTests.swift */,
+				DA2D97B91BEE64DA002DF12E /* Info.plist */,
+			);
+			path = TaxiTests;
+			sourceTree = "<group>";
+		};
+		DA2D97C11BEE64DA002DF12E /* TaxiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D97C21BEE64DA002DF12E /* TaxiUITests.swift */,
+				DA2D97C41BEE64DA002DF12E /* Info.plist */,
+			);
+			path = TaxiUITests;
+			sourceTree = "<group>";
+		};
+		DA2D97CB1BEE64DA002DF12E /* Taxi WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D97CC1BEE64DA002DF12E /* Interface.storyboard */,
+				DA2D97CF1BEE64DA002DF12E /* Assets.xcassets */,
+				DA2D97D11BEE64DA002DF12E /* Info.plist */,
+			);
+			path = "Taxi WatchKit App";
+			sourceTree = "<group>";
+		};
+		DA2D97DA1BEE64DA002DF12E /* Taxi WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D97DD1BEE64DA002DF12E /* InterfaceController.swift */,
+				DA2D97DF1BEE64DA002DF12E /* ExtensionDelegate.swift */,
+				DA2D97E11BEE64DA002DF12E /* NotificationController.swift */,
+				DA2D97E31BEE64DA002DF12E /* Assets.xcassets */,
+				DA2D97E51BEE64DA002DF12E /* Info.plist */,
+				DA2D97DB1BEE64DA002DF12E /* Supporting Files */,
+			);
+			path = "Taxi WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		DA2D97DB1BEE64DA002DF12E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D97DC1BEE64DA002DF12E /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA2D979E1BEE64D9002DF12E /* Taxi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2D97F01BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "Taxi" */;
+			buildPhases = (
+				DA2D979B1BEE64D9002DF12E /* Sources */,
+				DA2D979C1BEE64D9002DF12E /* Frameworks */,
+				DA2D979D1BEE64D9002DF12E /* Resources */,
+				DA2D97EF1BEE64DA002DF12E /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA2D97CA1BEE64DA002DF12E /* PBXTargetDependency */,
+			);
+			name = Taxi;
+			productName = Taxi;
+			productReference = DA2D979F1BEE64D9002DF12E /* Taxi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA2D97B21BEE64DA002DF12E /* TaxiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2D97F31BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "TaxiTests" */;
+			buildPhases = (
+				DA2D97AF1BEE64DA002DF12E /* Sources */,
+				DA2D97B01BEE64DA002DF12E /* Frameworks */,
+				DA2D97B11BEE64DA002DF12E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA2D97B51BEE64DA002DF12E /* PBXTargetDependency */,
+			);
+			name = TaxiTests;
+			productName = TaxiTests;
+			productReference = DA2D97B31BEE64DA002DF12E /* TaxiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA2D97BD1BEE64DA002DF12E /* TaxiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2D97F61BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "TaxiUITests" */;
+			buildPhases = (
+				DA2D97BA1BEE64DA002DF12E /* Sources */,
+				DA2D97BB1BEE64DA002DF12E /* Frameworks */,
+				DA2D97BC1BEE64DA002DF12E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA2D97C01BEE64DA002DF12E /* PBXTargetDependency */,
+			);
+			name = TaxiUITests;
+			productName = TaxiUITests;
+			productReference = DA2D97BE1BEE64DA002DF12E /* TaxiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		DA2D97C61BEE64DA002DF12E /* Taxi WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2D97EC1BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "Taxi WatchKit App" */;
+			buildPhases = (
+				DA2D97C51BEE64DA002DF12E /* Resources */,
+				DA2D97EB1BEE64DA002DF12E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA2D97D91BEE64DA002DF12E /* PBXTargetDependency */,
+			);
+			name = "Taxi WatchKit App";
+			productName = "Taxi WatchKit App";
+			productReference = DA2D97C71BEE64DA002DF12E /* Taxi WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		DA2D97D51BEE64DA002DF12E /* Taxi WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA2D97E81BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "Taxi WatchKit Extension" */;
+			buildPhases = (
+				DA2D97D21BEE64DA002DF12E /* Sources */,
+				DA2D97D31BEE64DA002DF12E /* Frameworks */,
+				DA2D97D41BEE64DA002DF12E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Taxi WatchKit Extension";
+			productName = "Taxi WatchKit Extension";
+			productReference = DA2D97D61BEE64DA002DF12E /* Taxi WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA2D97971BEE64D9002DF12E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Gabe Chai";
+				TargetAttributes = {
+					DA2D979E1BEE64D9002DF12E = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = BX9ZJ99RCK;
+					};
+					DA2D97B21BEE64DA002DF12E = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = DA2D979E1BEE64D9002DF12E;
+					};
+					DA2D97BD1BEE64DA002DF12E = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = DA2D979E1BEE64D9002DF12E;
+					};
+					DA2D97C61BEE64DA002DF12E = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = BX9ZJ99RCK;
+					};
+					DA2D97D51BEE64DA002DF12E = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = BX9ZJ99RCK;
+					};
+				};
+			};
+			buildConfigurationList = DA2D979A1BEE64D9002DF12E /* Build configuration list for PBXProject "Taxi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA2D97961BEE64D9002DF12E;
+			productRefGroup = DA2D97A01BEE64D9002DF12E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA2D979E1BEE64D9002DF12E /* Taxi */,
+				DA2D97B21BEE64DA002DF12E /* TaxiTests */,
+				DA2D97BD1BEE64DA002DF12E /* TaxiUITests */,
+				DA2D97C61BEE64DA002DF12E /* Taxi WatchKit App */,
+				DA2D97D51BEE64DA002DF12E /* Taxi WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA2D979D1BEE64D9002DF12E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2D97AD1BEE64DA002DF12E /* LaunchScreen.storyboard in Resources */,
+				DA2D97AA1BEE64DA002DF12E /* Assets.xcassets in Resources */,
+				DA2D97A81BEE64DA002DF12E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97B11BEE64DA002DF12E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97BC1BEE64DA002DF12E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97C51BEE64DA002DF12E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2D97D01BEE64DA002DF12E /* Assets.xcassets in Resources */,
+				DA2D97CE1BEE64DA002DF12E /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97D41BEE64DA002DF12E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2D97E41BEE64DA002DF12E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA2D979B1BEE64D9002DF12E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2D97A51BEE64DA002DF12E /* ViewController.swift in Sources */,
+				DA2D97A31BEE64DA002DF12E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97AF1BEE64DA002DF12E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2D97B81BEE64DA002DF12E /* TaxiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97BA1BEE64DA002DF12E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2D97C31BEE64DA002DF12E /* TaxiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA2D97D21BEE64DA002DF12E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA2D97E21BEE64DA002DF12E /* NotificationController.swift in Sources */,
+				DA2D97E01BEE64DA002DF12E /* ExtensionDelegate.swift in Sources */,
+				DA2D97DE1BEE64DA002DF12E /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA2D97B51BEE64DA002DF12E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2D979E1BEE64D9002DF12E /* Taxi */;
+			targetProxy = DA2D97B41BEE64DA002DF12E /* PBXContainerItemProxy */;
+		};
+		DA2D97C01BEE64DA002DF12E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2D979E1BEE64D9002DF12E /* Taxi */;
+			targetProxy = DA2D97BF1BEE64DA002DF12E /* PBXContainerItemProxy */;
+		};
+		DA2D97CA1BEE64DA002DF12E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2D97C61BEE64DA002DF12E /* Taxi WatchKit App */;
+			targetProxy = DA2D97C91BEE64DA002DF12E /* PBXContainerItemProxy */;
+		};
+		DA2D97D91BEE64DA002DF12E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2D97D51BEE64DA002DF12E /* Taxi WatchKit Extension */;
+			targetProxy = DA2D97D81BEE64DA002DF12E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA2D97A61BEE64DA002DF12E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2D97A71BEE64DA002DF12E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA2D97AB1BEE64DA002DF12E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2D97AC1BEE64DA002DF12E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DA2D97CC1BEE64DA002DF12E /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA2D97CD1BEE64DA002DF12E /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA2D97E61BEE64DA002DF12E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA2D97E71BEE64DA002DF12E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA2D97E91BEE64DA002DF12E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Taxi WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.Taxi.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		DA2D97EA1BEE64DA002DF12E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Taxi WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.Taxi.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		DA2D97ED1BEE64DA002DF12E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Taxi_WatchKit_Extension;
+				INFOPLIST_FILE = "Taxi WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.Taxi.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		DA2D97EE1BEE64DA002DF12E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Taxi_WatchKit_Extension;
+				INFOPLIST_FILE = "Taxi WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.Taxi.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		DA2D97F11BEE64DA002DF12E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Taxi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.Taxi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		DA2D97F21BEE64DA002DF12E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Taxi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.Taxi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		DA2D97F41BEE64DA002DF12E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TaxiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.TaxiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taxi.app/Taxi";
+			};
+			name = Debug;
+		};
+		DA2D97F51BEE64DA002DF12E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TaxiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.TaxiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taxi.app/Taxi";
+			};
+			name = Release;
+		};
+		DA2D97F71BEE64DA002DF12E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TaxiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.TaxiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Taxi;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DA2D97F81BEE64DA002DF12E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TaxiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamVoldemort.TaxiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Taxi;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA2D979A1BEE64D9002DF12E /* Build configuration list for PBXProject "Taxi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2D97E61BEE64DA002DF12E /* Debug */,
+				DA2D97E71BEE64DA002DF12E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA2D97E81BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "Taxi WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2D97E91BEE64DA002DF12E /* Debug */,
+				DA2D97EA1BEE64DA002DF12E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA2D97EC1BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "Taxi WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2D97ED1BEE64DA002DF12E /* Debug */,
+				DA2D97EE1BEE64DA002DF12E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA2D97F01BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "Taxi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2D97F11BEE64DA002DF12E /* Debug */,
+				DA2D97F21BEE64DA002DF12E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA2D97F31BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "TaxiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2D97F41BEE64DA002DF12E /* Debug */,
+				DA2D97F51BEE64DA002DF12E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA2D97F61BEE64DA002DF12E /* Build configuration list for PBXNativeTarget "TaxiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA2D97F71BEE64DA002DF12E /* Debug */,
+				DA2D97F81BEE64DA002DF12E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA2D97971BEE64D9002DF12E /* Project object */;
+}
