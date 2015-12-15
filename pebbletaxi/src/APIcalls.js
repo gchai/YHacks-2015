@@ -90,7 +90,7 @@ function fetchPriceAndDistance(start_latitude, start_longitude, end_latitude, en
         var res = JSON.parse(req.response);
 
         output.UBER = res.prices[0].estimate;
-        output.CABBIE = (Math.floor(100 * (3.5 * (res.prices[0].distance) + 2.5)))/100 + "-" +  (Math.floor(100 * (3.7 * (res.prices[0].distance) + 3.5)))/100;
+        output.CABBIE = (Math.floor(100 * (3.5 * (res.prices[0].distance) + 2.5)))/100 + "-" +  (Math.floor(100 * (3.9 * (res.prices[0].distance) + 2.5)))/100;
 
         console.log("Uber output: " + JSON.stringify(output));
         Pebble.sendAppMessage(output);
