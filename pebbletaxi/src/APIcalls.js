@@ -1,5 +1,5 @@
-var googleKey = "AIzaSyANz6rDMkj0vbUxFQQYuz3HuMluKtIa-Kk";
-var uberKey = "mPwREC7G-2Va31dK1MxF5d2jOrfmcJ2EiaVlIl8t";
+var googleKey = "INSERT-API-KEY-HERE";
+var uberKey = "INSERT-API-KEY-HERE";
 
 function getGPSCoordinates(callback) {  //Callback gets lat and long
   var locationOptions = {
